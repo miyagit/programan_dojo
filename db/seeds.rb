@@ -20,4 +20,5 @@ ActiveRecord::Base.transaction do
   register_profile('programan_sister',     5,  1, 20, 153, 43)
   register_profile('programan_bigbrother', 6,  0, 28, 178, 63)
   register_profile('programan_brother',    5,  0, 22, 172, 64)
+  puts '環境構築が完了しました。'
 end
