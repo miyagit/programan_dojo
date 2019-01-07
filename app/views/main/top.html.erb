@@ -1,3 +1,29 @@
 <div class='p-top'>
-	<p class='p-top__title'>今回の記事の目標：<%= @title %>！</p>
+  <p class='p-top__title'>今回の記事の目標：<%= @title %>！</p>
+  <table border="1" class= 'p-top__introduce'>
+	  <tr>
+		  <th>名前</th>
+		  <th>職業</th>
+		  <th>性別</th>
+		  <th>年齢</th>
+		  <th>身長</th>
+		  <th>体重</th>
+	  </tr>
+  	<% @users.each do |user| %>
+    <tr>
+	    <td><%= user.name%></td>
+	    <td><%= user.job.name %></td>
+	    <% if user.sex == 0 %>
+	      <td>男性</td>
+	     <% elsif user.sex == 1 %>
+	      <td>女性</td>
+	     <% else %>
+	      <td>不明</td>
+	    <% end %>
+	    <td><%= "#{user.age}歳" %></td>
+	    <td><%= "#{user.tall}cm" %></td>
+	    <td><%= "#{user.weight}kg" %></td>
+    </tr>
+  <% end %>
+  </table>
 </div>
