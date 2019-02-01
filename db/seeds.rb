@@ -11,8 +11,17 @@ def register_profile(name, job, sex, age, tall, weight)
 	User.create!(name: name, job_id: job, sex: sex, age: age, tall: tall, weight: weight)
 end
 
+def register_tweet
+  Tweet.create!(text: 'こんにちは！', user_id: 1)
+  Tweet.create!(text: 'ありがとう！', user_id: 2)
+  Tweet.create!(text: 'さようなら！', user_id: 1)
+  Tweet.create!(text: 'ごめんなさい！', user_id: 3)
+  Tweet.create!(text: 'おはよう！', user_id: 2)
+end
+
 ActiveRecord::Base.transaction do
 	register_job
+  register_tweet
 	register_profile('programan',            1,  0, 25, 175, 68)
   register_profile('programan_father',     2,  0, 58, 173, 60)
   register_profile('programan_mother',     3,  1, 55, 162, 45)
