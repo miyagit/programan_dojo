@@ -3,4 +3,8 @@ class MainController < ApplicationController
 		@title = "paramsを確認してみよう"
 		@users = User.all
 	end
+
+	def search
+		@users = User.where(name: params[:keyword])
+	end
 end

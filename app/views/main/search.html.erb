@@ -1,13 +1,6 @@
 <div class='p-top'>
-	<div class='p-top__title'>今回の記事の目標：<%= @title %>！<br>
-	<%= link_to "ユーザー登録", new_user_path %><br>
-	<%= form_tag "search", method: :get do %><br>
-	<input type="text" name="keyword">
-	<input type="submit", value="検索">
-	<% end %>
-	</div>
-	<br>
-	<table border="1" class= 'p-top__introduce'>
+  <div class='p-top__title'><%= link_to "ユーザー登録", new_user_path %></div>
+  <table border="1" class= 'p-top__introduce'>
     <tr>
     <th>名前</th>
     <th>年齢</th>
