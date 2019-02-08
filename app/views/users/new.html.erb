@@ -1,0 +1,11 @@
+<div class="form_wrap">
+	<%= form_for @user do |f| %>
+		<p>名前：<%= f.text_field :name %></p>
+		<p>職業：<%= f.collection_select :job_id, @jobs, :id, :name %></p>
+		<p>性別：<%= f.radio_button :sex, 0 %>男<%= f.radio_button :sex, 1, checked: true %>女
+		<p>年齢：<%= f.number_field :age %></p>
+		<p>身長：<%= f.number_field :tall %></p>
+		<p>体重：<%= f.number_field :weight %></p>
+		<p><%= f.submit :送信 %>
+	<% end %>
+</div>
