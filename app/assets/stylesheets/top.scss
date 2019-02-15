@@ -1,7 +1,22 @@
 .p-top {
   min-width: 960px;
+ 
   &__title {
     text-align: center;
     font-size: 16px;
+  }
+ 
+	&__form {
+		text-align: center;
+	}
+
+  &__introduce {
+    margin: 0 auto;
+    th {
+        padding: 0 15px;
+    }
+    td {
+      padding: 0 15px;
+    }
   }
 }

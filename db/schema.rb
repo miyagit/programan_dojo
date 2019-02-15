@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 2018_11_28_113500) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.bigint "job_id", null: false
-    t.integer "sex", null: false
-    t.integer "age", null: false, unsigned: true
-    t.float "tall", null: false, unsigned: true
-    t.float "weight", null: false, unsigned: true
+    t.integer "sex"
+    t.integer "age", unsigned: true
+    t.float "tall", unsigned: true
+    t.float "weight", unsigned: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_users_on_job_id"

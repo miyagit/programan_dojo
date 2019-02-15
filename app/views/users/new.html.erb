@@ -1,0 +1,7 @@
+<div class='p-top'>
+	<%= form_for @user do |f| %>
+	<p class='p-top__form'>名前：<%= f.text_field :name %></p>
+	<p class='p-top__form'>職業：<%= f.collection_select :job_id, @jobs, :id, :name %></p>
+	<p class='p-top__form'><%= f.submit "送信" %></p>
+	<% end %>
+</div>
