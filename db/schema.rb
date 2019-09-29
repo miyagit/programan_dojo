@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_113500) do
+ActiveRecord::Schema.define(version: 2019_07_19_094916) do
+
+  create_table "circle_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "circle_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["circle_id"], name: "index_circle_users_on_circle_id"
+    t.index ["user_id", "circle_id"], name: "index_circle_users_on_user_id_and_circle_id", unique: true
+    t.index ["user_id"], name: "index_circle_users_on_user_id"
+  end
+
+  create_table "circles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -19,16 +35,21 @@ ActiveRecord::Schema.define(version: 2018_11_28_113500) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
     t.string "name", default: "", null: false
     t.bigint "job_id", null: false
-    t.integer "sex", null: false
+    t.string "sex", null: false
     t.integer "age", null: false, unsigned: true
-    t.float "tall", null: false, unsigned: true
-    t.float "weight", null: false, unsigned: true
+    t.integer "tall", null: false, unsigned: true
+    t.integer "weight", null: false, unsigned: true
+    t.integer "income", null: false, unsigned: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["job_id"], name: "index_users_on_job_id"
   end
 
+  add_foreign_key "circle_users", "circles"
+  add_foreign_key "circle_users", "users"
   add_foreign_key "users", "jobs"
 end
