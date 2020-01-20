@@ -1,0 +1,27 @@
+<div class="wrapper" style="text-align: center;">
+  <% if @user.errors.any? %>
+    <p class="alert alert-danger" style="width: 500px; margin: 0 auto;"><%= @user.errors.full_messages %></p>
+  <% end %>
+  <%= form_for(@user, :html => {:style => "width: 500px; margin: 30px auto;"}) do |f| %>
+    <div class="form-group" style="margin-bottom: 30px;">
+      <label style="text-align: left; display: block;">名前</label>
+      <%= f.text_field :name, class: 'form-control', style: 'margin-bottom: 15px;'%>
+      <label style="text-align: left; display: block;">メール</label>
+      <%= f.text_field :email, class: 'form-control', style: 'margin-bottom: 15px;'%>
+      <label style="text-align: left; display: block;">仕事</label>
+      <%= f.collection_select(:job_id, Job.all, :id, :name, {prompt: ""}, {class: "form-control", style: 'margin-bottom: 15px;'}) %>
+      <label style="text-align: left; display: block;">性別</label>
+      <%= f.text_field :sex, class: 'form-control', style: 'margin-bottom: 15px;'%>
+      <label style="text-align: left; display: block;">年齢</label>
+      <%= f.text_field :age, class: 'form-control', style: 'margin-bottom: 15px;'%>
+      <label style="text-align: left; display: block;">身長</label>
+      <%= f.text_field :tall, class: 'form-control', style: 'margin-bottom: 15px;'%>
+      <label style="text-align: left; display: block;">体重</label>
+      <%= f.text_field :weight, class: 'form-control', style: 'margin-bottom: 15px;'%>
+      <label style="text-align: left; display: block;">収入</label>
+      <%= f.text_field :income, class: 'form-control', style: 'margin-bottom: 15px;'%>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
+
