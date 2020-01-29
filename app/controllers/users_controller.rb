@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    binding.pry
     if @user.save
       redirect_to root_path, notice: 'userを作成できました。'
     else
@@ -16,6 +15,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :job_id, :sex, :age, :tall, :weight, :income)
+    params.require(:user).permit(:name, :age, :blood_type, :is_married)
   end
 end

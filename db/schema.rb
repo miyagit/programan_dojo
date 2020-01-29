@@ -35,21 +35,14 @@ ActiveRecord::Schema.define(version: 2019_07_19_094916) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
     t.string "name", default: "", null: false
-    t.bigint "job_id", null: false
-    t.string "sex", null: false
-    t.integer "age", null: false, unsigned: true
-    t.integer "tall", null: false, unsigned: true
-    t.integer "weight", null: false, unsigned: true
-    t.integer "income", null: false, unsigned: true
+    t.integer "age", null: false
+    t.integer "blood_type", default: 0, null: false
+    t.boolean "is_married", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["job_id"], name: "index_users_on_job_id"
   end
 
   add_foreign_key "circle_users", "circles"
   add_foreign_key "circle_users", "users"
-  add_foreign_key "users", "jobs"
 end
