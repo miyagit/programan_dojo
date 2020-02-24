@@ -6,13 +6,47 @@
     font-size: 16px;
   }
 
+  &__label {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
   &__introduce {
-  	margin: 0 auto;
-  	th {
-  		padding: 0 15px;
-  	}
-  	td {
-  	  padding: 0 15px;
-  	}
+    margin: 0 auto 30px;;
+    th {
+      padding: 0 5px;
+    }
+    td {
+      padding: 0 5px;
+    }
+  }
+
+
+
+  &__section {
+    margin-left: 75px;
+    display: flex;
+    justify-content: space-around;
+
+    &__box {
+      width: 24%;
+
+      th {
+        padding: 0 5px;
+      }
+      td {
+        padding: 0 5px;
+      }
+
+      &__label {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      &__table {
+        display: inline-block;
+      }
+    }
   }
 }
