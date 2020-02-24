@@ -11,13 +11,13 @@ end
 
 ActiveRecord::Base.transaction do
 	# register_job
-	programan = register_profile('programan', 25, 'A', false)
-  programan_father = register_profile('programan_father', 58, 'A', true)
-  programan_mother = register_profile('programan_mother', 58, 'O', true)
-  programan_bigsister = register_profile('programan_bigsister', 30, 'B', true)
-  programan_sister = register_profile('programan_sister', 20, 'AB', false)
-  programan_bigbrother = register_profile('programan_bigbrother', 28, 'A', true)
-  programan_brother = register_profile('programan_brother', 22, 'O', true)
+	programan = register_profile('programan', 25, 0, false)
+  programan_father = register_profile('programan_father', 58, 0, true)
+  programan_mother = register_profile('programan_mother', 58, 2, true)
+  programan_bigsister = register_profile('programan_bigsister', 30, 1, true)
+  programan_sister = register_profile('programan_sister', 20, 3, false)
+  programan_bigbrother = register_profile('programan_bigbrother', 28, 0, true)
+  programan_brother = register_profile('programan_brother', 22, 2, true)
   register_circle
   CircleUser.create(user_id: programan.id, circle_id: Circle.first.id)
   CircleUser.create(user_id: programan_father.id, circle_id: Circle.first.id)
