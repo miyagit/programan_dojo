@@ -1,3 +1,3 @@
-class AdminViewsController < ApplicationController
+class AdminViewsController < AdminController
   def show; end
 end
